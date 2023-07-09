@@ -6,7 +6,7 @@ The project aims to assess whether a breast lump could be malignant (cancerous) 
 
 Technology used - Python,Jupyter Notebook,TensorFlow,Keras.
 
-Web is deployed using - Flask,html,css,javascript
+Web App is deployed using - Flask,html,css,javascript
 
 
 

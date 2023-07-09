@@ -10,9 +10,11 @@ Web App is deployed using - Flask,html,css,javascript
 
 ScreenShot - 
 
-![image](https://github.com/vijethpoojary85/Breast-Cancer-Detection/assets/101103637/34996ebd-8740-4960-b9a6-76a0291a870f)
+![image](https://github.com/vijethpoojary85/Breast-Cancer-Detection/assets/101103637/f2031ee3-3df7-490c-8128-9d174aa74540)
 
-![image](https://github.com/vijethpoojary85/Breast-Cancer-Detection/assets/101103637/f2850749-087d-4ec3-92e0-620da30ff55d)
+
+![image](https://github.com/vijethpoojary85/Breast-Cancer-Detection/assets/101103637/53b8e360-3ff2-4920-afcf-05f46c77cbaf)
+
 
 
 

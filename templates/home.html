@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Breast Cancer Prediction</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+    .table {
+      border: 1px solid black;
+    }
+
+    .thead-pink {
+      background-color: pink;
+    }
+    .cost {
+      border: 2px solid #ccc;
+      padding: 20px;
+    }
+
+    .accommodation {
+      border: 2px solid #ccc;
+      padding: 20px;
+    }
+
+    /* Optional: Adjust the color or style of the table headers if needed */
+    .thead-pink th {
+      background-color: pink;
+      color: black;
+    }
+    .btn-right {
+    font-size: 20px;
+      padding: 10px 20px;
+      float: right;
+      margin-right: 10px;
+    }
+         h1 {
+             font-size: 40px;
+             color: black;
+             font-family: Verdana, Geneva, sans-serif;
+         }
+                  h5 {
+                      font-size: 40px;
+                      color: black;
+                      font-family: Verdana, Geneva, sans-serif;
+                  }
+             .p-large {
+             
+      font-size: 15px;
+    }
+                .p1-large {
+         font-size: 18px;
+       }
+
+  .hospital-image {
+  width: 400px;
+ height: 280px;
+}
+  
+       body {
+      background-image: url({{url_for('static', filename='BBB/doctor.jpg')}});
+      background-size: cover;
+      background-position: center center;
+    }
+  </style>
+</head>
+<body>
+    <!-- Back to top button -->
+    
+
+    <div class="container-fluid" style="background-color: lightpink;">
+      <center>
+        <h1>Breast Cancer Prediction</h1>      
+        <p class="p1-large">Predicts whether the cancer is benign or malignant </p>
+     </center>
+      </div>
+    </div>
+<br><br>
+
+ <div class="container">
+  <div class="stat-content">
+    <div class="row align-items-center">
+      <div class="col-md-12">
+        <h2 class="heading text-center">Let's Talk Statistics</h2>
+      </div>
+    </div>
+    <br>
+    <div class="row align-items-center incidence-rates">
+      <div class="col-md-6 align-items-center" data-aos="fade-up">
+        <h3>World Breast Cancer Incidence Rates</h3>
+         <p class="p-large">According to a survey published by <a target="_blank" href="https://www.iarc.fr/">IARC</a>, in 2010, the USA appears to have the highest incidence rate for breast cancer among the countries studied. This indicates that a higher proportion of women in the USA were diagnosed with breast cancer compared to other countries during that period.Several factors contribute to the variation in breast cancer incidence rates. These include genetic factors, lifestyle choices, reproductive factors, hormonal influences, and environmental exposures. Additionally, differences in healthcare systems, screening programs, awareness campaigns, and access to early detection and treatment services can also impact breast cancer incidence rates.</p>
+      </div>
+      <div class="col-md-6 text-center" data-aos="fade-left">
+        <img src="https://www.aging-us.com/article/202502/figure/f1/hero" alt="roll over map for country incidence rates" height="300" width="100%">
+      </div>
+    </div>
+    <br>
+    <br>
+        <br>
+
+    <div class="row align-items-center age-risk">
+      <div class="col-md-6 text-center" data-aos="fade-right">
+              <img src="https://breast-cancer.ca/wp-content/uploads/2017/05/graph-risk-of-breast-cancer-decades.jpg"  height="300" width="100%">
+      
+      </div>
+      <br>
+      
+      <div class="col-md-6 align-items-center" data-aos="fade-up">
+        <h3>Age Increase the Risk of Breast Cancer</h3>
+          <p class="p-large">The older we are, the more likely abnormal changes will occur in our cells. When many of these changes occur, cancer can develop. A person’s risk of developing breast cancer increases as they get older. As people age, abnormal changes in their cells are more likely to occur.
+
+Breast cancer is most common in females over the age of 50 yearsTrusted Source. According to the National Cancer Institute (NCI)Trusted Source, doctors most often diagnose breast cancer in females aged 55–64 years.
+
+Based on data from 2012–2016, the median age of diagnosis in females with breast cancer was 62 years oldTrusted Source.</p>
+      </div>
+    </div>
+    <br>
+    <br>
+        <br>
+
+    <div class="row align-items-center cancer-frequency">
+      <div class="col-md-6 align-items-center" data-aos="fade-up">
+        <h3>Breast Cancer Frequency</h3>
+          <p class="p-large">According to <a target="_blank" href="https://www.who.int/cancer/prevention/diagnosis-screening/breast-cancer/en/">WHO</a>, breast cancer is the most frequent cancer among women, impacting 2.1 million women each year, and it also causes the greatest number of cancer-related deaths among women. In 2018, it was estimated that 627,000 women died from breast cancer – that is approximately 15% of all cancer deaths among women.</p>
+      </div>
+      <div class="col-md-6 text-center" data-aos="fade-left">
+        <img src="https://www.nationalbreastcancer.org/wp-content/uploads/BC-Stats-v04_1-in-8-women-Landscape-1024x575.png" alt="breast cancer statistics" height="300" width="100%">
+      </div>
+    </div>
+    <br>
+    <br>
+        <br>
+
+    <div class="row align-items-center cancer-mortality" data-aos="fade-right">
+      <div class="col-md-6 align-items-center">
+        <img src="https://miro.medium.com/v2/resize:fit:950/1*S5E2QvAPXLDd0Q4t4wbcZw.jpeg" alt="cancer mortality in women" height="300" width="100%">
+      </div>
+      <div class="col-md-6 text-center" data-aos="fade-up">
+        <h3>Cancer Mortality Rate in Women</h3>
+         <p class="p-large">Breast cancer is a significant health concern for women worldwide. It is associated with the second-highest mortality rate among women's cancers. Mortality rate refers to the number of deaths attributed to a specific cause within a population over a specified period.Early detection plays a crucial role in improving breast cancer outcomes. Regular breast self-exams, clinical breast exams, and mammography screenings are common methods used for early detection. Timely diagnosis allows for early intervention, which can lead to more successful treatment outcomes and improved survival rates.
+
+Treatment for breast cancer typically involves a multidisciplinary approach, which may include surgery, radiation therapy, chemotherapy, targeted therapy, and hormone therapy. The specific treatment plan depends on various factors, such as the stage of cancer, tumor characteristics, and individual patient considerations.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
+    <!-- contents starts here  -->
+    
+   <div class="treatment">
+    <div class="container">
+      <h1 class="text-center">Treatment</h1>
+      <br>
+      <div class="cost text-center">
+        <h3>Average Treatment Cost (All costs)</h3>
+        <br>
+       <div class="table-responsive">
+    <table class="table treatment-cost">
+      <thead class="thead-pink">
+        <tr>
+          <th scope="col">PET Scan</th>
+          <th scope="col">Chemotherapy</th>
+          <th scope="col">Radiation Therapy</th>
+          <th scope="col">Surgery</th>
+          <th scope="col">Average Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&#8377;18,750</td>
+          <td>&#8377;22,500-&#8377;36,000</td>
+          <td>&#8377;2,10,000</td>
+          <td>&#8377;1,65,000-&#8377;2,25,000</td>
+          <td>&#8377;3,00,000</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <h3>Accommodation Cost</h3>
+  <table class="table accommodations">
+    <thead class="thead-pink">
+      <tr>
+        <th scope="col">Days in Hospital</th>
+        <th scope="col">Cost of Stay In Hotel</th>
+        <th scope="col">Cost of Service Apartments</th>
+        <th scope="col">Total duration of stay</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>3 Days</td>
+        <td>&#8377;3,000 - &#8377;3,750 per day</td>
+        <td>&#8377;2,625 per day</td>
+        <td>20 Days</td>
+      </tr>
+    </tbody>
+  </table>    </div>
+
+        <br>
+        <br>
+        <center>
+<h5>Top Cancer Specialty Hospitals In India</h5>
+</center>
+<br><br>
+
+<div class="wrapper">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="image-wrapper">
+          <img class="hospital-image" src="https://www.thehindu.com/news/cities/mumbai/oqtgz2/article31275275.ece/ALTERNATES/LANDSCAPE_1200/7BMTATAMEMORIAL" alt="tata memorial hospital">
+        </div>
+        <div class="info">
+          <h3>Tata Memorial Hospital, Mumbai</h3>
+          <a target="_blank" href="https://tmc.gov.in/index.php/en/" class="btn btn-pink">Visit Site</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="image-wrapper">
+          <img class="hospital-image" src="https://i.pinimg.com/564x/76/e3/b3/76e3b3517fdb0f5678e31db574fd1f6f.jpg" width="400px" alt="AIIMS Delhi">
+        </div>
+        <div class="info">
+          <h3>AIIMS, Delhi</h3>
+          <a target="_blank" href="https://www.aiims.edu/en.html" class="btn btn-pink">Visit Site</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="card">
+        <div class="image-wrapper">
+          <img class="hospital-image" src="https://www.thenewsminute.com/sites/all/var/www/images/CancerInstitute_New_650.jpg" width="400px" alt="The Cancer Institute, Adyar, Chennai">
+        </div>
+        <div class="info">
+          <h3>The Cancer Institute, Chennai</h3>
+          <a target="_blank" href="http://cancerinstitutewia.in/CI-WIA/" class="btn btn-pink">Visit Site</a>
+        </div>
+      </div>
+    </div>
+      <div class="row" style="margin-top: 30px;">
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="image-wrapper">
+              <img class="hospital-image" src="https://www.vaidam.com/sites/default/files/hospitals/fortis-gurgaon-building1_0.jpg" width="400px" alt="Fortis Hospital Gurgaon">
+            </div>
+            <div class="info">
+              <h3>Fortis Hospital Gurgaon</h3>
+              <a target="_blank" href="https://www.fmri.in/" class="btn btn-pink">Visit Site</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="image-wrapper">
+              <img class="hospital-image" src="https://chblob.icloudhospital.com/imagecontainer/20210125_153051-a4461d4c-7bb9-4d37-88f8-81ae76145977.jpg" width="400px" alt="Narayana Superspeciality Hospital Gurugram">
+            </div>
+            <div class="info">
+              <h3>Narayana Superspeciality Hospital Gurugram</h3>
+              <a target="_blank" href="https://www.narayanahealth.org/hospitals/gurugram/narayana-superspeciality-hospital-gurugram" class="btn btn-pink">Visit Site</a>
+            </div>
+          </div>
+        </div>
+                <div class="col-sm-4">
+                  <div class="card">
+                    <div class="image-wrapper">
+                      <img class="hospital-image" src="https://cdn.yashodahospitals.com/wp-content/uploads/yashoda_hitech_city.jpg" width="400px" alt="Yashoda Hospital Hyderabad">
+                    </div>
+                    <div class="info">
+                      <h3>Yashoda Hospital Hyderabad</h3>
+                      <a target="_blank" href="https://www.yashodahospitals.com/about-us/gallery/" class="btn btn-pink">Visit Site</a>
+                    </div>
+                  </div>
+                </div>
+      </div>
+         </div>
+       </div>
+  </div>
+</div>
+
+
+      <div class="container">
+    <button class="btn btn-primary btn-lg btn-right" onclick="window.location.href='{{ url_for('check_patient') }}'">Check Patient</button>
+  </div>
+
+    <script>
+
+      var btn = $('#button');
+
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+          btn.addClass('show');
+        } else {
+          btn.removeClass('show');
+        }
+      });
+
+      btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '300');
+      });
+    </script>
+
+</body>
+</html>

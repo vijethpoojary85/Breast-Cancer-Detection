@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Breast Cancer Detection</title>
+    <style>
+        @keyframes movingFont {
+            0% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(30px); /* Adjust the distance of movement */
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+        
+        h1 {
+            font-size: 60px;
+            color: black;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+        
+        .breast-cancer {
+            background-color: black;
+            color: hotpink;
+            padding: 0px; /* Adjust the padding as needed */
+        }
+        
+        h3 {
+            font-size: 25px;
+            color: maroon;
+            animation: movingFont 4s infinite;
+        }
+        
+        body {
+            background-color: white;
+        }
+        
+        body {
+            background-image: url({{url_for('static', filename='BBB/wqw.png')}});
+            background-size: cover;
+        }
+        
+        .logout-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: #ff0000; /* Add your desired background color */
+            color: #ffffff; /* Add your desired text color */
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .form-group {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .predict-button {
+            font-size: 20px; /* Adjust the font size as desired */
+            background-color:yellow;
+            padding: 10px 20px;
+        }
+               .p1-large {
+    font-size: 30px;
+    padding: 10px;
+}
+.benign {
+  background-color: lime;
+}
+
+.malignant {
+  background-color: red;
+}
+
+
+ 
+
+    </style>
+</head>
+<body>
+    <a href="/logout" class="logout-button">Logout</a>
+
+    <center>
+        <h1>Breast Cancer Detection</h1>
+                    <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+            <br><br>
+
+        <form action="/predict" method="post" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" style="font-size: 20px;"> <!-- Adjust the font-size attribute here -->
+            <br><br>            <br><br>
+          
+
+            <div class="form-group">
+                <input type="submit" value="Predict" class="predict-button">
+            </div>
+        </form>
+<div class="container-fluid">
+  {% if class_name %}
+    {% if class_name == 'benign' %}
+      <p class="p1-large message"><span class="benign" style="background-color: lime;">{{ message }}</span></p>
+    {% elif class_name == 'malignant' %}
+      <p class="p1-large message"><span class="malignant" style="background-color: red;">{{ message }}</span></p>
+      <p class="p1-large warning malignant" style="background-color: red;">Please contact a doctor!</p>
+    {% else %}
+      <p class="p1-large message">{{ message }}</p>
+    {% endif %}
+  {% endif %}
+</div>
+
+    </center>
+</body>
+</html>
